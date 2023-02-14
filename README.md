@@ -25,4 +25,4 @@ services:
 
 `environment` is optional, defaults to `10.0.0.0/24`
 
-
+Check out [this medium post](https://medium.com/@gstewart_47676/wireguard-made-ridiculously-easy-fa1ef176ce8e) for additional details (e.g how to setup wireguard.conf)
