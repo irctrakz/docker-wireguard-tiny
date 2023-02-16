@@ -5,7 +5,12 @@ Resultant container is <20MB uncompressed, and <7MB compressed!
 
 [https://hub.docker.com/r/trakz/wireguard/tags](https://hub.docker.com/r/trakz/wireguard/tags)
 
-Docker compose
+Docker CLI:
+```
+docker run --cap-add=NET_ADMIN -p 51820:51820/udp -v "/path/to/wireguard.conf:/config/wireguard.conf" trakz/wireguard:latest
+```
+
+Docker Compose:
 ```
 version: '3.3'
 services:
