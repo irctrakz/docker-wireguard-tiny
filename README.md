@@ -1,5 +1,5 @@
 # docker-wireguard-tiny
-A standalone userspace Wireguard implementation using Alpine Linux.
+A standalone userspace Wireguard (Boringtun) implementation using Alpine Linux.
 
 Resultant container is <20MB uncompressed, and <7MB compressed!
 
