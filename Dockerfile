@@ -20,6 +20,5 @@ RUN \
  rm -rf /tmp/* /var/tmp/*
 
 # ports, volumes, env, etc
-ENV WG_SUDO=1
 HEALTHCHECK --interval=15m --timeout=30s CMD /bin/bash /data/healthcheck.sh
 ENTRYPOINT ["/bin/bash", "/data/wireguard.sh"]

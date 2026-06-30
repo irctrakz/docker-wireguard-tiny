@@ -79,7 +79,7 @@ fi
 # --disable-drop-privileges is a bare flag in the current boringtun CLI.
 #
 # nice -n -10 requires SYS_NICE. If the container lacks SYS_NICE, this may fail.
-# Since you already grant SYS_NICE in compose, we keep the negative nice value.
+# This is intended to be an incremental performance improvement for the service.
 nice -n -10 "$BORINGTUN_BIN" --disable-drop-privileges -f "$WG_IFACE" &
 wireguard_pid=$!
 
@@ -214,7 +214,7 @@ printf "Configuring baseline iptables forwarding/NAT rules...\n"
 # Optional custom DNAT/service rules
 # ---------------------------------------------------------------------------
 
-# This is where your nginx DNAT rule belongs. For example:
+# This is where nginx DNAT rules belongs. For example:
 #
 #   VPN client -> 10.0.10.204:443
 #   DNAT       -> nginx container 172.20.0.2:443
