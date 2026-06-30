@@ -12,7 +12,7 @@ if [[ -f /data/boringtun ]]; then
     printf "Starting Wireguard userspace (boringtun)\n";
     mkdir -p /dev/net;
     mknod /dev/net/tun c 10 200;
-    /data/boringtun -f wg0 & # Sends logs to STDOUT
+    exec nice -n -10 /data/boringtun -f wg0 & # Sends logs to STDOUT
     wireguard_pid=$!;
 else
     printf "WARNING: Wireguard binary not found. This container will not run\n";
