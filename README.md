@@ -16,12 +16,16 @@ version: '3.3'
 services:
     wireguard:
         container_name: wireguard
+        cpuset: "0,1"
         cap_add:
             - NET_ADMIN
+            - SYS_NICE
         ports:
-            - '51820:51820/udp'
+            - '45000:51820/udp'
         environment:
-            - IP_WG_ENV=10.22.10.0/24
+            - IP_WG_ENV=10.1.10.1/24
+            - WG_SUBNET=10.1.10.0/24
+            - IPT=iptables-legacy
         volumes:
             - '/path/to/configs/:/config'
         restart: always
