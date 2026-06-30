@@ -1,4 +1,4 @@
-FROM alpine:latest as build
+FROM alpine:latest AS build
 
 RUN \
  echo "***** install cargo ****" && \
@@ -15,7 +15,7 @@ COPY scripts/wireguard.sh /data/wireguard.sh
 
 RUN \
  echo "***** install ip mgmt tools *****" && \
- apk add --no-cache wireguard-tools iproute2 libgcc && \
+ apk add --no-cache bash wireguard-tools iproute2 iptables iptables-legacy iputils libgcc libc-utils && \
  echo "**** cleanup ****" && \
  rm -rf /tmp/* /var/tmp/*
 
